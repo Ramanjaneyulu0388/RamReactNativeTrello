@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import * as APICall from "../api";
+import AppBar from "./AppBar";
 import Board from "./Board";
 import BoardInput from "./BoardInput";
 
@@ -31,26 +32,37 @@ class Boards extends Component {
   };
   render() {
     return (
-      <View style={styles.container}>
-        {this.state.boards.map((each) => {
-          return <Board boardDetails={each} key={each.id} />;
-        })}
-        <BoardInput hanldeInput={this.hanldeInput} />
+      <View style = {styles.mainContainer}>
+        <AppBar style={styles.appbar} />
+        <View style={styles.container}>
+          {this.state.boards.map((each) => {
+            return <Board boardDetails={each} key={each.id} />;
+          })}
+          <BoardInput hanldeInput={this.hanldeInput} />
+        </View>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  mainContainer:{
+flex:1
+  },
   container: {
     flex: 1,
-    backgroundColor: "#485665",
+    backgroundColor: "#9bc1bc",
     alignItems: "center",
     justifyContent: "center",
     flexWrap: "wrap",
     width: "100%",
     flexDirection: "row",
     alignContent: "center",
+    height: "100%",
+  },
+  appbar: {
+  width:'100%'
+
   },
 });
 
