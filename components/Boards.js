@@ -12,27 +12,27 @@ class Boards extends Component {
     APICall.getBoards().then((data) => {
       const newBoards = data;
       this.setState({ boards: newBoards });
-      console.log(this.state.boards[0]);
+      //console.log(this.state.boards[0]);
     });
   }
 
   hanldeInput = (text) => {
     APICall.createBoard(text).then((res) => {
-      console.log("Final response is ");
+     // console.log("Final response is ");
 
-      console.log(res.data.name);
-      console.log(this.state.boards[0]);
+     // console.log(res.data.name);
+     // console.log(this.state.boards[0]);
       const finalBoards = [
         ...this.state.boards,
         { id: res.data.id, name: res.data.name, url: res.data.url },
       ];
-      console.log("Final boards", finalBoards);
+     // console.log("Final boards", finalBoards);
       this.setState({ boards: finalBoards });
     });
   };
-  render() {
+  render() { 
     return (
-      <View style = {styles.mainContainer}>
+      <View style={styles.mainContainer}>
         <AppBar style={styles.appbar} />
         <View style={styles.container}>
           {this.state.boards.map((each) => {
@@ -46,8 +46,10 @@ class Boards extends Component {
 }
 
 const styles = StyleSheet.create({
-  mainContainer:{
-flex:1
+  mainContainer: {
+    flex: 1,
+    justifyContent:'center',
+    padding:2
   },
   container: {
     flex: 1,
@@ -61,8 +63,7 @@ flex:1
     height: "100%",
   },
   appbar: {
-  width:'100%'
-
+    width: "100%",
   },
 });
 

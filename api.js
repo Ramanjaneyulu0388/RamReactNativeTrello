@@ -17,3 +17,34 @@ export function createBoard(name) {
     )
     .then((res) => res);
 }
+export function getLists(listId) {
+  return axios
+    .get(
+      `https://api.trello.com/1/boards/${listId}/lists?key=${key}&token=${token}`
+    )
+    .then((res) => {
+      return res.data;
+    });
+}
+
+export function createList(name, boardId) {
+  return axios
+    .post(
+      `https://api.trello.com/1/boards/${boardId}/lists?name=${name}&key=${key}&token=${token}`
+    )
+    .then((res) => {
+      //  console.log(res);
+      return res;
+    });
+}
+
+export function getCardsInAList(listId) {
+  return axios
+    .get(
+      `https://api.trello.com/1/lists/${listId}/cards?key=${key}&token=${token}`
+    )
+    .then((res) => {
+      //  console.log(res);
+      return res.data;
+    });
+}

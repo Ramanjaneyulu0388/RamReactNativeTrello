@@ -7,7 +7,7 @@ import { MaterialIcons } from "@expo/vector-icons";
 function AppBar() {
   return (
     <>
-      <StatusBar bg="#3700B3" barStyle="light-content" />
+      <StatusBar bg="#3700B3" barStyle="light-content" />  
       <Box safeAreaTop bg="violet.600" />
       <HStack
         bg="violet.800"
